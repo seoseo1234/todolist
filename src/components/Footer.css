@@ -1,0 +1,53 @@
+.app-footer {
+  width: 100%;
+  background-color: #f8f9fa;
+  border-top: 1px solid #e9ecef;
+  padding: 1.5rem 0;
+  margin-top: auto; /* 푸터를 하단에 고정시키기 위한 설정 (부모 컨테이너가 flex/min-height: 100vh 일 때) */
+  color: #6c757d;
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.footer-links {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.25rem;
+}
+
+.footer-link-btn {
+  background: none;
+  border: none;
+  color: #495057;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 0;
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  transition: all 0.2s ease;
+}
+
+.footer-link-btn:hover {
+  color: #212529;
+  text-decoration-color: #212529;
+}
+
+.footer-divider {
+  color: #dee2e6;
+}
+
+.footer-info, .footer-copyright {
+  margin: 0;
+  line-height: 1.4;
+}

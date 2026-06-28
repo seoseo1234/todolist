@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import Login from './pages/Login';
+import Signup from './pages/Signup';
 import TodoList from './pages/TodoList';
 import CalendarView from './pages/CalendarView';
 import StatsView from './pages/StatsView';
@@ -12,15 +13,16 @@ import './App.css';
 function AppLayout() {
   const { currentUser } = useAuth();
   const location = useLocation();
-  const isLoginPage = location.pathname === '/login';
+  const isAuthPage = location.pathname === '/login' || location.pathname === '/signup';
 
   return (
     <div className="App">
-      {!isLoginPage && currentUser && <Sidebar />}
+      {!isAuthPage && currentUser && <Sidebar />}
       <div className="main-content">
         <Routes>
           <Route path="/" element={<Navigate to="/todos" replace />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
           <Route 
             path="/todos" 
             element={<ProtectedRoute><TodoList /></ProtectedRoute>} 

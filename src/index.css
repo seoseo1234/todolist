@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
+
 :root {
   --text: #555555;
   --text-h: #e63946; /* Red for headings */
@@ -15,9 +17,9 @@
   --rounded-lg: 8px;
   --rounded-pill: 50px;
 
-  /* Handwriting/Casual Fonts (if available) or standard sans */
-  --sans: 'Comic Sans MS', 'Chalkboard SE', 'Marker Felt', system-ui, sans-serif;
-  --heading: 'Comic Sans MS', 'Chalkboard SE', 'Marker Felt', system-ui, sans-serif;
+  /* Handwriting/Casual Fonts */
+  --sans: 'Jua', 'Comic Sans MS', 'Chalkboard SE', 'Marker Felt', system-ui, sans-serif;
+  --heading: 'Jua', 'Comic Sans MS', 'Chalkboard SE', 'Marker Felt', system-ui, sans-serif;
   --mono: monospace;
 
   font: 18px/145% var(--sans);

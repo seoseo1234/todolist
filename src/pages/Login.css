@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap');
 
 .login-container {
   display: flex;
@@ -26,8 +26,8 @@
 }
 
 .login-title {
-  font-family: 'Jua', sans-serif;
-  font-size: 36px;
+  font-family: 'Gamja Flower', sans-serif;
+  font-size: 42px;
   color: #f07b65;
   margin-top: 0;
   margin-bottom: 30px;
@@ -67,7 +67,7 @@
   font-size: 16px;
   color: #333;
   font-weight: 500;
-  font-family: 'Jua', sans-serif;
+  font-family: 'Gamja Flower', sans-serif;
   letter-spacing: 0.5px;
 }
 
@@ -98,8 +98,8 @@
   color: white;
   border: none;
   border-radius: 8px;
-  font-size: 18px;
-  font-family: 'Jua', sans-serif;
+  font-size: 20px;
+  font-family: 'Gamja Flower', sans-serif;
   cursor: pointer;
   transition: all 0.2s;
   margin-top: 10px;

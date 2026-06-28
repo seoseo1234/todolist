@@ -36,7 +36,7 @@
 
 .username {
   font-weight: bold;
-  font-size: 16px;
+  font-size: 20px;
   color: var(--text-h);
 }
 
@@ -45,7 +45,7 @@
   padding: 24px 16px;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 12px;
 }
 
 .side-nav-item, .logout-btn {
@@ -53,9 +53,9 @@
   align-items: center;
   background: none;
   border: none;
-  padding: 12px 16px;
+  padding: 14px 16px;
   border-radius: var(--rounded-md);
-  font-size: 16px;
+  font-size: 20px;
   font-weight: bold;
   color: var(--text);
   cursor: pointer;
@@ -77,8 +77,8 @@
 }
 
 .side-nav-icon {
-  margin-right: 12px;
-  font-size: 20px;
+  margin-right: 14px;
+  font-size: 24px;
 }
 
 .sidebar-footer {
@@ -123,7 +123,7 @@
   .side-nav-item, .logout-btn {
     flex-direction: column;
     padding: 8px 4px;
-    font-size: 11px;
+    font-size: 14px;
     border-radius: 0;
     justify-content: center;
     text-align: center;
@@ -134,7 +134,7 @@
   .side-nav-icon {
     margin-right: 0;
     margin-bottom: 4px;
-    font-size: 20px;
+    font-size: 22px;
   }
 
   .sidebar-footer {

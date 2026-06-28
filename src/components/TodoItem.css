@@ -1,6 +1,6 @@
 .todo-item {
   display: grid;
-  grid-template-columns: 24px 80px 1fr 140px 60px 40px;
+  grid-template-columns: 24px 90px 1fr 140px 60px 40px;
   align-items: center;
   gap: 12px;
   padding: 16px 20px;
@@ -83,8 +83,8 @@
 }
 
 .cat-badge {
-  font-size: 13px;
-  padding: 4px 0;
+  font-size: 16px;
+  padding: 6px 0;
   border-radius: var(--rounded-pill);
   color: var(--bg);
   font-weight: bold;
@@ -165,8 +165,8 @@
   .cat-badge {
     grid-column: 1;
     grid-row: 2;
-    padding: 4px 8px;
-    font-size: 11px;
+    padding: 6px 12px;
+    font-size: 14px;
     align-self: center;
   }
   

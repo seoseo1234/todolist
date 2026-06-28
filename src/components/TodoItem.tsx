@@ -40,11 +40,13 @@ export default function TodoItem({
     >
       <div className="todo-drag-handle">⠿</div>
       
-      <div className="todo-content">
-        <span className="cat-badge" style={{ backgroundColor: catColor }}>
-          {category?.label || '기본'}
-        </span>
-        <span className="todo-text">{todo.text}</span>
+      <span className="cat-badge" style={{ backgroundColor: catColor }}>
+        {category?.label || '기본'}
+      </span>
+      
+      <span className="todo-text">{todo.text}</span>
+      
+      <div className="todo-date-wrapper">
         {todo.dueDate && (
           <input 
             type="date" 

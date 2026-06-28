@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
 
 :root {
   --text: #555555;
@@ -18,11 +18,11 @@
   --rounded-pill: 50px;
 
   /* Handwriting/Casual Fonts */
-  --sans: 'Gamja Flower', 'Comic Sans MS', 'Chalkboard SE', 'Marker Felt', system-ui, sans-serif;
-  --heading: 'Gamja Flower', 'Comic Sans MS', 'Chalkboard SE', 'Marker Felt', system-ui, sans-serif;
+  --sans: 'Jua', 'Comic Sans MS', 'Chalkboard SE', 'Marker Felt', system-ui, sans-serif;
+  --heading: 'Jua', 'Comic Sans MS', 'Chalkboard SE', 'Marker Felt', system-ui, sans-serif;
   --mono: monospace;
 
-  font: 20px/145% var(--sans); /* Slightly larger base font for Gamja Flower */
+  font: 22px/145% var(--sans); /* Increased font size for better legibility with Jua */
   letter-spacing: 0.5px;
   color: var(--text);
   background: var(--bg);

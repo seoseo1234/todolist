@@ -23,12 +23,43 @@ export default function CalendarView() {
   };
 
   const getTodosForDay = (day: number) => {
-    return todos.filter(todo => {
-      const todoDate = new Date(todo.createdAt);
-      return todoDate.getFullYear() === year &&
-             todoDate.getMonth() === month &&
-             todoDate.getDate() === day;
-    });
+    const currentDayDate = new Date(year, month, day);
+    currentDayDate.setHours(0,0,0,0);
+    const currentTime = currentDayDate.getTime();
+
+    const result = [];
+    
+    // Sort todos so they appear in a consistent vertical order across days
+    const sortedTodos = [...todos].sort((a, b) => a.order - b.order);
+
+    for (const todo of sortedTodos) {
+      const createdDate = new Date(todo.createdAt);
+      createdDate.setHours(0,0,0,0);
+      const createdTime = createdDate.getTime();
+      
+      let dueTime = createdTime;
+      if (todo.dueDate) {
+        const dueDateObj = new Date(todo.dueDate);
+        dueDateObj.setHours(0,0,0,0);
+        dueTime = dueDateObj.getTime();
+      }
+
+      const start = Math.min(createdTime, dueTime);
+      const end = Math.max(createdTime, dueTime);
+
+      if (currentTime >= start && currentTime <= end) {
+        let position = 'middle';
+        if (start === end) {
+          position = 'single';
+        } else if (currentTime === start) {
+          position = 'start';
+        } else if (currentTime === end) {
+          position = 'end';
+        }
+        result.push({ todo, position });
+      }
+    }
+    return result;
   };
 
   const getCategoryColor = (categoryId: string) => {
@@ -50,13 +81,15 @@ export default function CalendarView() {
         <div key={day} className="calendar-cell">
           <div className="day-number">{day}</div>
           <div className="day-todos">
-            {dayTodos.map(todo => (
+            {dayTodos.map(({ todo, position }) => (
               <div 
                 key={todo.id} 
-                className={`todo-dot ${todo.completed ? 'completed' : ''}`}
+                className={`todo-bar ${position} ${todo.completed ? 'completed' : ''}`}
                 style={{ backgroundColor: getCategoryColor(todo.category) }}
                 title={todo.text}
-              />
+              >
+                <span className="todo-bar-text">{(position === 'start' || position === 'single' || day === 1) ? todo.text : ''}</span>
+              </div>
             ))}
           </div>
         </div>

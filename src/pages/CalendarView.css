@@ -74,17 +74,60 @@
 
 .day-todos {
   display: flex;
-  flex-wrap: wrap;
-  gap: 4px;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+  overflow-y: auto;
 }
 
-.todo-dot {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
+.todo-bar {
+  height: 22px;
+  display: flex;
+  align-items: center;
+  padding: 0 4px;
+  color: #fff;
+  font-size: 11px;
+  font-weight: bold;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   cursor: pointer;
+  margin-left: -5px; /* overlap padding to make continuous */
+  margin-right: -5px;
+  position: relative;
+  z-index: 1;
 }
 
-.todo-dot.completed {
-  opacity: 0.3;
+.todo-bar.single {
+  border-radius: 4px;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.todo-bar.start {
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  margin-left: 0;
+}
+
+.todo-bar.end {
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  margin-right: 0;
+}
+
+.todo-bar.middle {
+  border-radius: 0;
+}
+
+.todo-bar.completed {
+  opacity: 0.5;
+  text-decoration: line-through;
+}
+
+.todo-bar-text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 0 0 2px rgba(0,0,0,0.2);
 }

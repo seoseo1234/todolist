@@ -71,32 +71,42 @@ export default function Login() {
       const cat3Ref = doc(collection(db, 'categories'));
       batch.set(cat3Ref, { userId: uid, label: '개인', color: '#bae1ff', order: 2 });
       
-      const today = new Date().toISOString().split('T')[0];
-      const yesterday = new Date(Date.now() - 86400000).toISOString().split('T')[0];
-      const tomorrow = new Date(Date.now() + 86400000).toISOString().split('T')[0];
+      const today = new Date();
+      const format = (d: Date) => d.toISOString().split('T')[0];
+      
+      const dayToday = format(today);
+      
+      const dayMinus2 = format(new Date(Date.now() - 86400000 * 2));
+      const dayPlus1 = format(new Date(Date.now() + 86400000 * 1));
+      
+      const dayMinus5 = format(new Date(Date.now() - 86400000 * 5));
+      const dayMinus1 = format(new Date(Date.now() - 86400000 * 1));
+
+      const dayPlus2 = format(new Date(Date.now() + 86400000 * 2));
+      const dayPlus4 = format(new Date(Date.now() + 86400000 * 4));
 
       const todo1Ref = doc(collection(db, 'todos'));
       batch.set(todo1Ref, { 
-        userId: uid, text: '학부모 상담 준비하기', completed: false, important: true, 
-        category: cat1Ref.id, order: 0, createdAt: Date.now(), dueDate: today 
+        userId: uid, text: '학부모 상담 및 일지 정리', completed: false, important: true, 
+        category: cat1Ref.id, order: 0, createdAt: new Date(dayMinus2).getTime(), dueDate: dayPlus1 
       });
       
       const todo2Ref = doc(collection(db, 'todos'));
       batch.set(todo2Ref, { 
         userId: uid, text: '주간 학습 안내서 작성', completed: true, important: false, 
-        category: cat1Ref.id, order: 1, createdAt: Date.now() - 1000, dueDate: yesterday 
+        category: cat1Ref.id, order: 1, createdAt: new Date(dayMinus5).getTime(), dueDate: dayMinus1 
       });
 
       const todo3Ref = doc(collection(db, 'todos'));
       batch.set(todo3Ref, { 
         userId: uid, text: '과학 실험 교구 신청', completed: false, important: false, 
-        category: cat2Ref.id, order: 2, createdAt: Date.now() - 2000, dueDate: tomorrow 
+        category: cat2Ref.id, order: 2, createdAt: new Date(dayPlus2).getTime(), dueDate: dayPlus4 
       });
 
       const todo4Ref = doc(collection(db, 'todos'));
       batch.set(todo4Ref, { 
-        userId: uid, text: '아침 운동 가기', completed: true, important: true, 
-        category: cat3Ref.id, order: 3, createdAt: Date.now() - 3000, dueDate: today 
+        userId: uid, text: '아침 운동 가기', completed: false, important: true, 
+        category: cat3Ref.id, order: 3, createdAt: today.getTime(), dueDate: dayToday 
       });
 
       await batch.commit();

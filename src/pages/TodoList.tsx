@@ -14,6 +14,7 @@ export default function TodoList() {
   
   const [inputText, setInputText] = useState('');
   const [selectedCategory, setSelectedCategory] = useState<string>('');
+  const [dueDate, setDueDate] = useState<string>(new Date().toISOString().split('T')[0]);
   const [filter, setFilter] = useState<FilterType>('ALL');
   
   useEffect(() => {
@@ -34,7 +35,7 @@ export default function TodoList() {
   const handleAddSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!inputText.trim() || !selectedCategory) return;
-    await addTodo(inputText.trim(), selectedCategory);
+    await addTodo(inputText.trim(), selectedCategory, dueDate);
     setInputText('');
   };
 
@@ -116,13 +117,24 @@ export default function TodoList() {
               ⚙️ 카테고리 관리
             </button>
           </div>
-          <input
-            type="text"
-            className="todo-input"
-            placeholder="할 일을 입력하고 엔터를 누르세요"
-            value={inputText}
-            onChange={(e) => setInputText(e.target.value)}
-          />
+          <div style={{ display: 'flex', gap: '8px', width: '100%' }}>
+            <input
+              type="text"
+              className="todo-input"
+              placeholder="할 일을 입력하고 엔터를 누르세요"
+              value={inputText}
+              onChange={(e) => setInputText(e.target.value)}
+              style={{ flex: 1 }}
+            />
+            <input
+              type="date"
+              className="todo-input"
+              value={dueDate}
+              onChange={(e) => setDueDate(e.target.value)}
+              style={{ width: '150px' }}
+            />
+            <button type="submit" style={{ display: 'none' }}>Add</button>
+          </div>
         </form>
 
         <div className="todo-list">
@@ -133,6 +145,7 @@ export default function TodoList() {
               todo={todo}
               onToggle={(id, completed) => updateTodo(id, { completed })}
               onImportantToggle={(id, important) => updateTodo(id, { important })}
+              onDateChange={(id, dueDate) => updateTodo(id, { dueDate })}
               onDelete={deleteTodo}
               onDragStart={handleDragStart}
               onDragEnter={handleDragEnter}

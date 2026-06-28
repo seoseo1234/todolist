@@ -65,21 +65,24 @@ export function useTodos() {
     return unsubscribe;
   }, [currentUser]);
 
-  const addTodo = async (text: string, category: string = 'block-lime') => {
+  const addTodo = async (text: string, category: string = 'block-lime', dueDate?: string) => {
     if (!currentUser) return;
     
     // Find the max order
     const maxOrder = todos.length > 0 ? Math.max(...todos.map(t => t.order)) : 0;
-
-    await addDoc(collection(db, 'todos'), {
+    
+    const newTodoData = {
       userId: currentUser.uid,
       text,
       completed: false,
       important: false,
       category,
       order: maxOrder + 1,
-      createdAt: Date.now()
-    });
+      createdAt: Date.now(),
+      dueDate: dueDate || new Date().toISOString().split('T')[0] // Default to today if not provided
+    };
+
+    await addDoc(collection(db, 'todos'), newTodoData);
   };
 
   const updateTodo = async (id: string, updates: Partial<Todo>) => {

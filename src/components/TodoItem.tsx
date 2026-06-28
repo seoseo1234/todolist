@@ -8,6 +8,7 @@ interface TodoItemProps {
   onToggle: (id: string, completed: boolean) => void;
   onDelete: (id: string) => void;
   onImportantToggle: (id: string, important: boolean) => void;
+  onDateChange: (id: string, date: string) => void;
   onDragStart: (e: React.DragEvent, index: number) => void;
   onDragEnter: (e: React.DragEvent, index: number) => void;
   onDragEnd: () => void;
@@ -19,6 +20,7 @@ export default function TodoItem({
   onToggle,
   onDelete,
   onImportantToggle,
+  onDateChange,
   onDragStart,
   onDragEnter,
   onDragEnd
@@ -43,6 +45,15 @@ export default function TodoItem({
           {category?.label || '기본'}
         </span>
         <span className="todo-text">{todo.text}</span>
+        {todo.dueDate && (
+          <input 
+            type="date" 
+            className="todo-due-date-input" 
+            value={todo.dueDate} 
+            onChange={(e) => onDateChange(todo.id, e.target.value)}
+            title="마감 기한"
+          />
+        )}
       </div>
 
       <div className="todo-actions">

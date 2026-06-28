@@ -1,25 +1,55 @@
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import Login from './pages/Login';
-import Signup from './pages/Signup';
 import TodoList from './pages/TodoList';
-import Footer from './components/Footer';
+import CalendarView from './pages/CalendarView';
+import StatsView from './pages/StatsView';
+import SettingsView from './pages/SettingsView';
+import Sidebar from './components/Sidebar';
+import ProtectedRoute from './components/ProtectedRoute';
+import { AuthProvider, useAuth } from './contexts/AuthContext';
 import './App.css';
+
+function AppLayout() {
+  const { currentUser } = useAuth();
+  const location = useLocation();
+  const isLoginPage = location.pathname === '/login';
+
+  return (
+    <div className="App">
+      {!isLoginPage && currentUser && <Sidebar />}
+      <div className="main-content">
+        <Routes>
+          <Route path="/" element={<Navigate to="/todos" replace />} />
+          <Route path="/login" element={<Login />} />
+          <Route 
+            path="/todos" 
+            element={<ProtectedRoute><TodoList /></ProtectedRoute>} 
+          />
+          <Route 
+            path="/calendar" 
+            element={<ProtectedRoute><CalendarView /></ProtectedRoute>} 
+          />
+          <Route 
+            path="/stats" 
+            element={<ProtectedRoute><StatsView /></ProtectedRoute>} 
+          />
+          <Route 
+            path="/settings" 
+            element={<ProtectedRoute><SettingsView /></ProtectedRoute>} 
+          />
+        </Routes>
+      </div>
+    </div>
+  );
+}
 
 function App() {
   return (
-    <Router>
-      <div className="App">
-        <div className="main-content">
-          <Routes>
-            <Route path="/" element={<Navigate to="/login" replace />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/signup" element={<Signup />} />
-            <Route path="/todos" element={<TodoList />} />
-          </Routes>
-        </div>
-        <Footer />
-      </div>
-    </Router>
+    <AuthProvider>
+      <Router>
+        <AppLayout />
+      </Router>
+    </AuthProvider>
   );
 }
 

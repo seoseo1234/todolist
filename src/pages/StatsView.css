@@ -1,0 +1,105 @@
+.stats-main {
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.stats-card {
+  background: transparent;
+  border: 2px solid var(--border);
+  border-radius: var(--rounded-lg);
+  padding: 24px;
+}
+
+.summary-card {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.stat-label {
+  font-size: 14px;
+  font-weight: bold;
+  color: var(--text);
+  text-transform: uppercase;
+}
+
+.stat-value {
+  font-size: 36px;
+  font-weight: bold;
+  font-family: var(--mono);
+}
+
+.progress-card {
+  text-align: center;
+}
+
+.progress-card h2 {
+  font-size: 20px;
+  color: var(--text-h);
+  margin-bottom: 16px;
+}
+
+.big-rate {
+  font-size: 48px;
+  font-weight: bold;
+  color: var(--primary);
+  margin-bottom: 16px;
+  font-family: var(--mono);
+}
+
+.progress-bar-container {
+  height: 16px;
+  background-color: rgba(69, 123, 157, 0.2);
+  border-radius: var(--rounded-pill);
+  overflow: hidden;
+  width: 100%;
+}
+
+.progress-bar-container.small {
+  height: 12px;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background-color: var(--primary);
+  transition: width 0.5s ease-out;
+}
+
+.category-stats-card h2 {
+  font-size: 20px;
+  color: var(--text-h);
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.cat-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.cat-bar-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.cat-bar-info {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.no-stats {
+  text-align: center;
+  color: var(--text);
+}

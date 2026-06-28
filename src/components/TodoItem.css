@@ -1,0 +1,117 @@
+.todo-item {
+  display: flex;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 2px solid var(--line-blue); /* Horizontal blue line */
+  transition: all 0.2s ease;
+  background-color: transparent;
+  color: var(--text);
+  cursor: grab;
+  position: relative;
+}
+
+.todo-item:active {
+  cursor: grabbing;
+  background-color: rgba(168, 218, 220, 0.2);
+}
+
+.todo-item.completed {
+  opacity: 0.6;
+}
+
+.todo-item.completed .todo-text {
+  text-decoration: line-through;
+  color: #999;
+}
+
+.todo-drag-handle {
+  color: var(--border);
+  font-size: 20px;
+  margin-right: 12px;
+  cursor: grab;
+  opacity: 0.5;
+  width: 20px;
+}
+
+.todo-checkbox-wrapper {
+  margin-left: auto; /* Push to the right */
+  margin-right: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.custom-checkbox {
+  width: 24px;
+  height: 24px;
+  border: 2px solid var(--primary); /* Red circle */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  background: transparent;
+}
+
+.todo-item.completed .custom-checkbox {
+  background-color: var(--primary);
+}
+
+.custom-checkbox::after {
+  content: '';
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--bg);
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.todo-item.completed .custom-checkbox::after {
+  opacity: 1; /* Inner white dot if desired, or just solid red */
+}
+
+.todo-content {
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.cat-badge {
+  font-size: 12px;
+  padding: 2px 8px;
+  border-radius: var(--rounded-pill);
+  color: var(--bg);
+  font-weight: bold;
+}
+
+.todo-text {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.todo-actions {
+  display: flex;
+  gap: 4px;
+}
+
+.action-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  padding: 4px;
+  border-radius: 50%;
+  color: var(--text);
+  transition: color 0.2s;
+}
+
+.important-btn.active {
+  color: #fbbf24;
+}
+
+.delete-btn:hover {
+  color: var(--primary);
+}

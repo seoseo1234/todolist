@@ -56,7 +56,7 @@
 .calendar-cell {
   background-color: var(--bg);
   min-height: 100px;
-  padding: 8px;
+  padding: 8px 0; /* Remove horizontal padding so bars touch edges */
   display: flex;
   flex-direction: column;
 }
@@ -69,7 +69,8 @@
   font-size: 14px;
   font-weight: bold;
   color: var(--text);
-  margin-bottom: 8px;
+  margin-bottom: 4px;
+  padding: 0 8px; /* Pad number since cell padding is gone */
 }
 
 .day-todos {
@@ -77,43 +78,48 @@
   flex-direction: column;
   gap: 2px;
   flex: 1;
-  overflow-y: auto;
+  /* Allow grid row to expand naturally instead of scrolling */
+  overflow: visible; 
 }
 
 .todo-bar {
   height: 22px;
   display: flex;
   align-items: center;
-  padding: 0 4px;
-  color: #fff;
+  padding: 0 8px;
   font-size: 11px;
   font-weight: bold;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   cursor: pointer;
-  margin-left: -5px; /* overlap padding to make continuous */
-  margin-right: -5px;
+  margin: 0;
   position: relative;
   z-index: 1;
 }
 
+/* Connect spanning bars across the 1px grid gap */
+.todo-bar.start,
+.todo-bar.middle {
+  margin-right: -1px;
+  padding-right: 9px; /* Compensate for the margin */
+}
+
 .todo-bar.single {
   border-radius: 4px;
-  margin-left: 0;
-  margin-right: 0;
+  margin: 0 4px; /* Space on both sides */
 }
 
 .todo-bar.start {
   border-top-left-radius: 4px;
   border-bottom-left-radius: 4px;
-  margin-left: 0;
+  margin-left: 4px;
 }
 
 .todo-bar.end {
   border-top-right-radius: 4px;
   border-bottom-right-radius: 4px;
-  margin-right: 0;
+  margin-right: 4px;
 }
 
 .todo-bar.middle {
@@ -121,13 +127,12 @@
 }
 
 .todo-bar.completed {
-  opacity: 0.5;
+  opacity: 0.6;
   text-decoration: line-through;
 }
 
 .todo-bar-text {
   overflow: hidden;
   text-overflow: ellipsis;
-  color: rgba(255, 255, 255, 0.9);
-  text-shadow: 0 0 2px rgba(0,0,0,0.2);
+  color: rgba(0, 0, 0, 0.7); /* Dark gray text for better contrast on pastel backgrounds */
 }

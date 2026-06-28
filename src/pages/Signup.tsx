@@ -56,47 +56,55 @@ export default function Signup() {
   return (
     <div className="login-container">
       <div className="login-card">
-        <h2 className="login-title">회원가입</h2>
+        <h2 className="login-title">Create Account</h2>
         <p className="login-subtitle">할 일 목록 서비스의 새 계정을 만들어주세요.</p>
         
         {error && <div className="login-error">{error}</div>}
         
         <form className="email-login-form" onSubmit={handleSignup}>
-          <input 
-            type="text" 
-            placeholder="이름 (닉네임)" 
-            value={displayName}
-            onChange={(e) => setDisplayName(e.target.value)}
-            className="auth-input"
-          />
-          <input 
-            type="email" 
-            placeholder="이메일" 
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-            className="auth-input"
-          />
-          <input 
-            type="password" 
-            placeholder="비밀번호 (6자리 이상)" 
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-            className="auth-input"
-            minLength={6}
-          />
-          <input 
-            type="password" 
-            placeholder="비밀번호 확인" 
-            value={passwordConfirm}
-            onChange={(e) => setPasswordConfirm(e.target.value)}
-            required
-            className="auth-input"
-            minLength={6}
-          />
+          <div className="input-group">
+            <label>Name</label>
+            <input 
+              type="text" 
+              value={displayName}
+              onChange={(e) => setDisplayName(e.target.value)}
+              className="auth-input"
+            />
+          </div>
+          <div className="input-group">
+            <label>Username (Email)</label>
+            <input 
+              type="email" 
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+              className="auth-input"
+            />
+          </div>
+          <div className="input-group">
+            <label>Password</label>
+            <input 
+              type="password" 
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+              className="auth-input"
+              minLength={6}
+            />
+          </div>
+          <div className="input-group">
+            <label>Confirm Password</label>
+            <input 
+              type="password" 
+              value={passwordConfirm}
+              onChange={(e) => setPasswordConfirm(e.target.value)}
+              required
+              className="auth-input"
+              minLength={6}
+            />
+          </div>
           <button type="submit" disabled={loading} className="auth-submit-btn">
-            {loading ? '가입 중...' : '계정 생성'}
+            {loading ? 'Signing up...' : 'Sign Up'}
           </button>
         </form>
 

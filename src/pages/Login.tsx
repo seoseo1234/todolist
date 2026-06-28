@@ -69,30 +69,34 @@ export default function Login() {
   return (
     <div className="login-container">
       <div className="login-card">
-        <h2 className="login-title">환영합니다!</h2>
+        <h2 className="login-title">Welcome Back</h2>
         <p className="login-subtitle">할 일 목록 서비스에 오신 것을 환영합니다.</p>
         
         {error && <div className="login-error">{error}</div>}
         
         <form className="email-login-form" onSubmit={handleEmailLogin}>
-          <input 
-            type="email" 
-            placeholder="이메일" 
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-            className="auth-input"
-          />
-          <input 
-            type="password" 
-            placeholder="비밀번호" 
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-            className="auth-input"
-          />
+          <div className="input-group">
+            <label>Username (Email)</label>
+            <input 
+              type="email" 
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+              className="auth-input"
+            />
+          </div>
+          <div className="input-group">
+            <label>Password</label>
+            <input 
+              type="password" 
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+              className="auth-input"
+            />
+          </div>
           <button type="submit" disabled={loading} className="auth-submit-btn">
-            {loading ? '로그인 중...' : '로그인'}
+            {loading ? 'Signing in...' : 'Sign in'}
           </button>
         </form>
 

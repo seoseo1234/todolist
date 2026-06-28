@@ -94,3 +94,57 @@
   background-color: rgba(239, 68, 68, 0.1);
   color: #dc2626;
 }
+
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: fixed;
+    bottom: 0;
+    top: auto;
+    border-right: none;
+    border-top: 2px solid var(--line-blue);
+    flex-direction: row;
+    z-index: 1000;
+  }
+  
+  .sidebar-header {
+    display: none;
+  }
+  
+  .sidebar-nav {
+    flex-direction: row;
+    padding: 0;
+    justify-content: space-around;
+    gap: 0;
+    margin: 0;
+  }
+  
+  .side-nav-item, .logout-btn {
+    flex-direction: column;
+    padding: 8px 4px;
+    font-size: 11px;
+    border-radius: 0;
+    justify-content: center;
+    text-align: center;
+    width: auto;
+    flex: 1;
+  }
+
+  .side-nav-icon {
+    margin-right: 0;
+    margin-bottom: 4px;
+    font-size: 20px;
+  }
+
+  .sidebar-footer {
+    display: flex;
+    padding: 0;
+    border-top: none;
+    flex: 1;
+  }
+  
+  .logout-btn {
+    margin: 0;
+  }
+}

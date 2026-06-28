@@ -136,3 +136,48 @@
   text-overflow: ellipsis;
   color: rgba(0, 0, 0, 0.7); /* Dark gray text for better contrast on pastel backgrounds */
 }
+
+@media (max-width: 768px) {
+  .calendar-controls {
+    gap: 12px;
+  }
+  
+  .calendar-controls h2 {
+    font-size: 20px;
+    width: auto;
+  }
+  
+  .calendar-header-cell {
+    padding: 8px 0;
+    font-size: 12px;
+  }
+  
+  .calendar-cell {
+    min-height: 80px;
+    padding: 4px 0;
+  }
+  
+  .day-number {
+    font-size: 12px;
+    margin-bottom: 2px;
+    padding: 0 4px;
+  }
+  
+  .todo-bar {
+    height: 18px;
+    padding: 0 4px;
+    font-size: 9px;
+  }
+
+  .todo-bar.single {
+    margin: 0 2px;
+  }
+
+  .todo-bar.start {
+    margin-left: 2px;
+  }
+
+  .todo-bar.end {
+    margin-right: 2px;
+  }
+}

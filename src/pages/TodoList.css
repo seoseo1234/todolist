@@ -184,3 +184,54 @@
   font-style: italic;
   font-family: 'Courier New', Courier, monospace;
 }
+
+@media (max-width: 768px) {
+  .dashboard-container {
+    padding: 20px 20px 80px 40px; /* Reduced padding, smaller left red line space */
+  }
+
+  .dashboard-container::before {
+    left: 20px; /* Move red line to the left */
+  }
+
+  .welcome-text {
+    font-size: 32px;
+  }
+
+  .date-text {
+    font-size: 14px;
+    padding-right: 0;
+  }
+
+  .filter-tabs {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .filter-tab {
+    padding: 6px 16px;
+    font-size: 14px;
+  }
+
+  .todo-input {
+    font-size: 16px;
+    padding: 12px 8px;
+  }
+
+  .category-selector {
+    gap: 4px;
+  }
+  
+  .cat-btn {
+    padding: 4px 12px;
+    font-size: 12px;
+  }
+
+  .fab-button {
+    bottom: 80px; /* Ensure it's above the bottom nav */
+    right: 20px;
+    width: 56px;
+    height: 56px;
+    font-size: 30px;
+  }
+}

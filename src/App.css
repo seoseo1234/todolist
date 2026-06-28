@@ -11,3 +11,13 @@
   min-width: 0; /* Prevents flex blowout */
   background-color: var(--bg);
 }
+
+@media (max-width: 768px) {
+  .App {
+    flex-direction: column;
+  }
+  
+  .main-content {
+    padding-bottom: 60px; /* Space for bottom navigation */
+  }
+}
